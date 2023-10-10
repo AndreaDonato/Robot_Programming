@@ -1,7 +1,9 @@
+# Esclude tutti i file senza estensione tranne i Makefile
 *
 !*/
 !*.*
 !Makefile
 *.o
+# E tutti i file nascosti tranne .gitignore
 .*
 !.gitignore

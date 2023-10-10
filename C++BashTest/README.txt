@@ -1,0 +1,1 @@
+Questo è un test per provare C++, il Makefile e la possibilità di scrivere in bash
