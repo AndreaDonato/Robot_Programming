@@ -141,3 +141,26 @@ Per il pull invece tocca decidere cosa fare. Si compone di due comandi:
 			Funziona solo se in locale ho un sottoinsieme non aggiornato dei file in remoto,
 			altrimenti si torna a risolvere i conflitti con i rebase/merge.
 
+Ipotizziamo che A faccia i primi push sulla repo remota e B a un certo punto voglia pullarla.
+Git si rifiuterà di farlo a meno di autorizzare esplicitamente questa cosa:
+
+	git pull origin main --allow-unrelated-histories
+
+In generale, il piano di azione è
+
+	pull > modifiche > push
+
+
+ALTRE COSE UTILI
+
+- Vedere quali repo remoti sono associati alla repo locale
+
+	git remote -v
+
+- Rinominare origin:
+
+	git remote rename origin nuovo_nome
+
+- Cambiare l'URL di origin:
+
+	git remote set-url origin nuovo_URL
