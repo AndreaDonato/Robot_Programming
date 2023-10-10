@@ -59,7 +59,7 @@ Ipotizziamo che ora creo altri file in main e voglio metterli anche in CtoC++. A
 
 	git merge main
 
-Ora il branch CtoC++ ha tutte le versioni più aggiornate di tutti i file di main (oltre ai suoi). 	
+Ora il branch CtoC++ ha tutte le versioni più aggiornate di tutti i file di main (oltre ai suoi).
 
 Se dovessi creare per sbaglio un branch puoi rimuoverlo con
 
@@ -77,3 +77,48 @@ Se vuoi cancellare dei file dalla repo
 Per scaricare dalla repo un singolo file
 
 	git show nome-del-branch:path/file.ext > file_nella_directory
+
+
+REPO REMOTA
+
+Creo la repo su GitHub (o analoghi). Sul branch che voglio collegare
+
+	git remote add origin <URL_GitHub>
+
+dove origin è una specie di alias usato al posto dell'URL. Meglio usare l'URL SSH
+
+	git@github.com:AndreaDonato/testing.git 		(per esempio)
+
+perché così in fase di push/pull non chiede ogni volta le credenziali GitHub.
+Per fare ciò però serve una chiave SSH.
+
+	ssh-keygen -t ed25519 -C "tua_email"
+
+La parte finale è solo un commento da accompagnare alla chiave. Questo genera una coppia di chiavi
+pubblica/privata. Ora bisogna copiare la chiave pubblica
+
+	cat ~/.ssh/id_ed25519.pub 		(+ copia a mano da terminale)
+
+oppure 
+
+	xclip -sel clip < ~/.ssh/<nome_chiave>.pub  	(Questo copia anche il commento "tua_email")
+
+Si incolla in GitHub > Settings > SSH e il gioco è fatto.
+La prima volta che si connette farà storie sull'autenticità della connessione. Se uno vuole essere
+zelante si va a confrontare il key_fingerprint ottenuto dal sito con quello ufficiale (ti dà anche
+la possibilità di incollarlo e confrontarlo). Basta dire 'yes'.
+
+A questo punto posso pushare le modifiche in locale
+
+	git add .
+	git commit
+
+nella repo remota 
+
+	git push -u origin main
+
+dove -u setta la coppia di push predefinita (per i push successivi basta scrivere git push, lui sa
+in automatico che deve farlo su origin da main). Se voglio posso specificare una coppia diversa con
+
+	git push origin2 main2 			# Posto che origin2 e main2 esistano
+
