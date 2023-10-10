@@ -122,3 +122,22 @@ in automatico che deve farlo su origin da main). Se voglio posso specificare una
 
 	git push origin2 main2 			# Posto che origin2 e main2 esistano
 
+Per il pull invece tocca decidere cosa fare. Si compone di due comandi:
+
+	- fetch: scarica le modifiche tra i branch locale e remoto (ma non le salva nella repo locale);
+
+	- Il modo in cui le salva può essere
+
+		- --no-rebase, ovvero un merge: nella repo locale troverò tutte le versioni più aggiornate
+			dei file presenti nella repo remota, oltre a quelli che c'erano già. Per settarlo di
+			default, git config pull.rebase false;
+
+		- --rebase, ovvero come un merge ma piuttosto che unire due rami in un commit di merge*
+			aggiunge le modifiche locali in fondo alle modifiche in remoto (la differenza si pone
+			se mentre A fa modifiche in remoto B ne ha già committate altre). Per settarlo di
+			default, git config pull.rebase true;
+
+		- --no-ff, ovvero fast-forward only, brutale copia e incolla del branch remoto nel locale.
+			Funziona solo se in locale ho un sottoinsieme non aggiornato dei file in remoto,
+			altrimenti si torna a risolvere i conflitti con i rebase/merge.
+
