@@ -1,0 +1,1 @@
+add_executable(test many_object_in_stack_example.cpp)

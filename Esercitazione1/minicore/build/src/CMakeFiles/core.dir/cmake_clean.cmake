@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/core.dir/messages/base_sensor_message.cpp.o"
+  "CMakeFiles/core.dir/messages/base_sensor_message.cpp.o.d"
+  "CMakeFiles/core.dir/messages/odometry_message.cpp.o"
+  "CMakeFiles/core.dir/messages/odometry_message.cpp.o.d"
+  "CMakeFiles/core.dir/messages/pose_message.cpp.o"
+  "CMakeFiles/core.dir/messages/pose_message.cpp.o.d"
+  "CMakeFiles/core.dir/utils/blob.cpp.o"
+  "CMakeFiles/core.dir/utils/blob.cpp.o.d"
+  "CMakeFiles/core.dir/utils/deserializer.cpp.o"
+  "CMakeFiles/core.dir/utils/deserializer.cpp.o.d"
+  "CMakeFiles/core.dir/utils/id_context.cpp.o"
+  "CMakeFiles/core.dir/utils/id_context.cpp.o.d"
+  "CMakeFiles/core.dir/utils/id_placeholder.cpp.o"
+  "CMakeFiles/core.dir/utils/id_placeholder.cpp.o.d"
+  "CMakeFiles/core.dir/utils/identifiable.cpp.o"
+  "CMakeFiles/core.dir/utils/identifiable.cpp.o.d"
+  "CMakeFiles/core.dir/utils/object_data.cpp.o"
+  "CMakeFiles/core.dir/utils/object_data.cpp.o.d"
+  "CMakeFiles/core.dir/utils/property.cpp.o"
+  "CMakeFiles/core.dir/utils/property.cpp.o.d"
+  "CMakeFiles/core.dir/utils/property_container.cpp.o"
+  "CMakeFiles/core.dir/utils/property_container.cpp.o.d"
+  "CMakeFiles/core.dir/utils/property_container_manager.cpp.o"
+  "CMakeFiles/core.dir/utils/property_container_manager.cpp.o.d"
+  "CMakeFiles/core.dir/utils/property_eigen.cpp.o"
+  "CMakeFiles/core.dir/utils/property_eigen.cpp.o.d"
+  "CMakeFiles/core.dir/utils/property_identifiable.cpp.o"
+  "CMakeFiles/core.dir/utils/property_identifiable.cpp.o.d"
+  "CMakeFiles/core.dir/utils/serializable.cpp.o"
+  "CMakeFiles/core.dir/utils/serializable.cpp.o.d"
+  "CMakeFiles/core.dir/utils/serialization_context.cpp.o"
+  "CMakeFiles/core.dir/utils/serialization_context.cpp.o.d"
+  "CMakeFiles/core.dir/utils/serializer.cpp.o"
+  "CMakeFiles/core.dir/utils/serializer.cpp.o.d"
+  "libcore.pdb"
+  "libcore.so"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/core.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

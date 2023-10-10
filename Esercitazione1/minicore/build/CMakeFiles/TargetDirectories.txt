@@ -1,0 +1,8 @@
+/home/andre/Desktop/int main/GitHubTest/minicore/build/CMakeFiles/edit_cache.dir
+/home/andre/Desktop/int main/GitHubTest/minicore/build/CMakeFiles/rebuild_cache.dir
+/home/andre/Desktop/int main/GitHubTest/minicore/build/src/CMakeFiles/core.dir
+/home/andre/Desktop/int main/GitHubTest/minicore/build/src/CMakeFiles/edit_cache.dir
+/home/andre/Desktop/int main/GitHubTest/minicore/build/src/CMakeFiles/rebuild_cache.dir
+/home/andre/Desktop/int main/GitHubTest/minicore/build/executables/CMakeFiles/test.dir
+/home/andre/Desktop/int main/GitHubTest/minicore/build/executables/CMakeFiles/edit_cache.dir
+/home/andre/Desktop/int main/GitHubTest/minicore/build/executables/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,19 @@
+add_library(core SHARED
+  utils/serializer.cpp
+  utils/blob.cpp
+  utils/deserializer.cpp
+  utils/id_placeholder.cpp
+  utils/property.cpp
+  utils/serialization_context.cpp
+  utils/property_eigen.cpp
+  utils/property_identifiable.cpp
+  utils/property_container_manager.cpp
+  utils/id_context.cpp
+  utils/object_data.cpp
+  utils/identifiable.cpp
+  utils/property_container.cpp
+  utils/serializable.cpp
+  messages/base_sensor_message.cpp
+  messages/odometry_message.cpp
+  messages/pose_message.cpp
+)
