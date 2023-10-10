@@ -1,0 +1,79 @@
+Nella cartella in cui voglio lavorare
+
+	git init
+
+crea una cartella nascosta .git (si vede con ls -a) con le configurazioni di default.
+Non esiste ancora il master branch, che viene creato dal primo commit.
+Se ci sono file nella cartella, li aggiungo alla coda di commit:
+
+	git add .			# Per svuotare la coda di commit se sbaglio a usare add scrivo {git reset}
+
+e finalmente li carico sul neonato master branch
+
+	git commit -m "first commit"
+
+che chiamo subito main perché master sa di schiavismo:
+
+	git branch -m master main
+
+Se va tutto bene controllo il branch creato con
+
+	git branch -v			# Posso omettere verbose ovviamente
+
+A questo punto aggiorno i file nella cartella, e ogni volta che sono soddisfatto
+
+	git add .
+	git commit -m "descrizione del commit"
+
+Se voglio escludere alcuni tipi di file dal brutale git add . (che di suo aggiunge alla repo tutta la cartella) mi serve un file .gitignore.
+Se ad esempio voglio ignorare tutti i file senza estensione (generalmente gli eseguibili) dovrò scrivere
+
+	*			# Ignora tutto
+	!*/			# tranne le cartelle
+	!*.*		# e i file con estensione
+
+Se faccio git status visualizzo
+
+	- Branch che sto attualmente utilizzando;
+	
+	- File modificati ma non ancora committati;
+	
+	- File presenti nella directory di lavoro ma non ancora tracciati da Git;
+	
+	- File messi in coda dal comando add, ovvero in attesa di un commit;
+
+	- Altri messaggi informativi.
+
+Se voglio vedere i file attualmente salvati nella repo uso
+
+	git ls-files
+
+Ora voglio creare un altro branch:
+
+	git branch CtoC++		# Voglio riscrivere in C++ dei programmi originariamente in C, quindi lo chiamo CtoC++
+	git branch -v			# Mi rendo conto che il nuovo branch è una copia di quello di partenza
+	git checkout CtoC++		# Mi sposto nel nuovo branch
+	git ls-files			# E infatti ci trovo gli stessi files di quello di partenza
+
+Ipotizziamo che ora creo altri file in main e voglio metterli anche in CtoC++. A partire dal branch che voglio aggiornare (CtoC++) uso
+
+	git merge main
+
+Ora il branch CtoC++ ha tutte le versioni più aggiornate di tutti i file di main (oltre ai suoi). 	
+
+Se dovessi creare per sbaglio un branch puoi rimuoverlo con
+
+	git branch -d nome-del-branch
+
+-d è una rimozione sicura, che si accerta che non ti stia perdendo dei file, -D è quella brutale.
+
+Se vuoi cancellare dei file dalla repo 
+
+
+	git rm --cached file_da_eliminare.txt				# Se tolgo --cached lo elimina anche dalla
+														# directory di lavoro
+	git commit -m "Rimosso file_da_eliminare.txt"		# Altrimenti la modifica non è effettiva
+
+Per scaricare dalla repo un singolo file
+
+	git show nome-del-branch:path/file.ext > file_nella_directory
