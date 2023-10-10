@@ -171,6 +171,9 @@ ALTRE COSE UTILI
 
 	tree
 
+		-I seguita da una directory, non la espande (usabile iterativamente -I dir1 -I dir2 ...)
+		--prune seguita da una directory, espande solo quella (usabile iterativamente)
+		 
 
 NOTE
 "origin" è definito nella directory di lavoro. Posso avere più directory locali collegate alle
