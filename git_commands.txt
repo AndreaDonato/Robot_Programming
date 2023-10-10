@@ -6,7 +6,7 @@ crea una cartella nascosta .git (si vede con ls -a) con le configurazioni di def
 Non esiste ancora il master branch, che viene creato dal primo commit.
 Se ci sono file nella cartella, li aggiungo alla coda di commit:
 
-	git add .			# Per svuotare la coda di commit se sbaglio a usare add scrivo {git reset}
+	git add .			# Per svuotare la coda di commit se sbaglio a usare add uso {git reset}
 
 e finalmente li carico sul neonato master branch
 
@@ -25,23 +25,21 @@ A questo punto aggiorno i file nella cartella, e ogni volta che sono soddisfatto
 	git add .
 	git commit -m "descrizione del commit"
 
-Se voglio escludere alcuni tipi di file dal brutale git add . (che di suo aggiunge alla repo tutta la cartella) mi serve un file .gitignore.
-Se ad esempio voglio ignorare tutti i file senza estensione (generalmente gli eseguibili) dovrò scrivere
+Se voglio escludere alcuni tipi di file dal brutale git add . (che di suo aggiunge alla repo tutta
+la cartella) mi serve un file .gitignore. Se ad esempio voglio ignorare tutti i file senza
+estensione (generalmente gli eseguibili) dovrò scrivere
 
 	*			# Ignora tutto
 	!*/			# tranne le cartelle
 	!*.*		# e i file con estensione
+	!Makefile	# magari tranne i Makefile, quelli servono
 
 Se faccio git status visualizzo
 
 	- Branch che sto attualmente utilizzando;
-	
 	- File modificati ma non ancora committati;
-	
 	- File presenti nella directory di lavoro ma non ancora tracciati da Git;
-	
 	- File messi in coda dal comando add, ovvero in attesa di un commit;
-
 	- Altri messaggi informativi.
 
 Se voglio vedere i file attualmente salvati nella repo uso
@@ -50,12 +48,14 @@ Se voglio vedere i file attualmente salvati nella repo uso
 
 Ora voglio creare un altro branch:
 
-	git branch CtoC++		# Voglio riscrivere in C++ dei programmi originariamente in C, quindi lo chiamo CtoC++
+	git branch CtoC++		# Voglio riscrivere in C++ dei programmi originariamente in C, quindi
+							# lo chiamo CtoC++
 	git branch -v			# Mi rendo conto che il nuovo branch è una copia di quello di partenza
 	git checkout CtoC++		# Mi sposto nel nuovo branch
 	git ls-files			# E infatti ci trovo gli stessi files di quello di partenza
 
-Ipotizziamo che ora creo altri file in main e voglio metterli anche in CtoC++. A partire dal branch che voglio aggiornare (CtoC++) uso
+Ipotizziamo che ora creo altri file in main e voglio metterli anche in CtoC++. A partire dal
+branch che voglio aggiornare (CtoC++) uso
 
 	git merge main
 
@@ -80,7 +80,6 @@ Per scaricare dalla repo un singolo file
 
 
 REPO REMOTA
-
 Creo la repo su GitHub (o analoghi). Sul branch che voglio collegare
 
 	git remote add origin <URL_GitHub>
@@ -137,12 +136,15 @@ Per il pull invece tocca decidere cosa fare. Si compone di due comandi:
 			se mentre A fa modifiche in remoto B ne ha già committate altre). Per settarlo di
 			default, git config pull.rebase true;
 
+			*per commit si intende un nodo dell'albero della cronologia modifiche. Il commit (nodo)
+				merge di n branch ha n padri.
+
 		- --no-ff, ovvero fast-forward only, brutale copia e incolla del branch remoto nel locale.
 			Funziona solo se in locale ho un sottoinsieme non aggiornato dei file in remoto,
 			altrimenti si torna a risolvere i conflitti con i rebase/merge.
 
-Ipotizziamo che A faccia i primi push sulla repo remota e B a un certo punto voglia pullarla.
-Git si rifiuterà di farlo a meno di autorizzare esplicitamente questa cosa:
+Ipotizziamo che A faccia i primi push sulla repo remota e B a un certo punto voglia pullarla per
+la prima volta. Git si rifiuterà di farlo a meno di autorizzare esplicitamente questa cosa:
 
 	git pull origin main --allow-unrelated-histories
 
@@ -164,3 +166,13 @@ ALTRE COSE UTILI
 - Cambiare l'URL di origin:
 
 	git remote set-url origin nuovo_URL
+
+- Visualizzare il contenuto della repo come albero (molto bello)
+
+	tree
+
+
+NOTE
+"origin" è definito nella directory di lavoro. Posso avere più directory locali collegate alle
+remote e tutte possono usare origin come alias per l'URL.
+Ovviamente se voglio avere più riferimenti a repo remote sulla stessa locale devo cambiare nome.
